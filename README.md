@@ -1,7 +1,5 @@
 # PetShopToys
-
-hackathon 2
-chjkhc
+hackathon 2 - Hello From Ben
 
 ###
 User Stories for Pet Owners
@@ -32,3 +30,4 @@ Have a special account type with additional discounts on bulk orders to better m
 Receive notification on the latest medical product releases and research to stay updated on veterinary advancements.
 Maintain an inventory list and re-order frequently used products easily to keep the clinic well-stocked.
 Connect with other professionals through forums and discussion boards to share knowledge and experiences.
+
