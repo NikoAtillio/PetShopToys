@@ -128,3 +128,4 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY_TEST', default="secret")
+print("STRIPE_SECRET_KEY", STRIPE_SECRET_KEY)
