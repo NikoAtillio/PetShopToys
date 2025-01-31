@@ -13,4 +13,4 @@ urlpatterns = [
      path('dogs/', views.dog_products, name='dog_products'),
     path('cats/', views.cat_products, name='cat_products'),
 ]
-=======
+
