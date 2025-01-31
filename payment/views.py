@@ -23,7 +23,3 @@ def create_checkout_session():
         cancel_url='http://cancel.html',
         customer_email=user_email,
     )
-
-    return session 
-
-        
