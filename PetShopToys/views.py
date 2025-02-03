@@ -6,5 +6,14 @@ from django.http import HttpResponse
 def home(request):
     return render(request, 'index.html')
 
+def products(request):
+    return render(request, 'products.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
 def payment(request):
     return render(request, 'checkout.html')
