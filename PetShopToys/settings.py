@@ -1,9 +1,6 @@
 import os
 from pathlib import Path
 
-from environ import Env
-env = Env()
-env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -127,5 +124,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY_TEST', default="secret")
-print("STRIPE_SECRET_KEY", STRIPE_SECRET_KEY)
+STRIPE_PUBLIC_KEY = ""
+STRIPE_SECRET_KEY = "sk_test_51QnJ47BMzPNz1e4lHz4rrrWTIQJGnlnnpkzrQm5yRR3qThq4taxKZUbwbf4q92fWxAonmYcDOQuOaTYegXgft83w00ClfFfrV0
+STRIPE_WEBHOOK_SECRET = ""
