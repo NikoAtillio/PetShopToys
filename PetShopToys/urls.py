@@ -4,8 +4,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from PetShopToys import views
 
-from PetShopToys import views
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', views.products, name='products'),
