@@ -1,4 +1,5 @@
 myenv/
+myenv/bin
 venv/
 .venv/
 .env
@@ -9,3 +10,6 @@ env.py
 __pycache__/
 *.py[cod]
 myenv
+bin
+bin/
+.myenv
