@@ -39,3 +39,4 @@ def dog_products(request):
 def cat_products(request):
     return render(request, 'cats/cat_products.html')
 
+

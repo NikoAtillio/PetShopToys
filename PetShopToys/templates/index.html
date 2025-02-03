@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
 {% block content %}
     <div class="text-center">
         <h1>Welcome to Pet Shop Toys!</h1>
@@ -7,7 +11,8 @@
     <div class="d-flex justify-content-center mt-4">
         <!-- Card for Cats -->
         <div class="card" style="width: 18rem; margin: 0 15px;">
-            <img src="static\images\main_cat.jpg" class="card-img-top" alt="Cats">
+            <img src="{% static 'images/main_cat.jpg' %}" class="card-img-top" alt="Cats">
+            <!-- <img src="static\images\main_cat.jpg" class="card-img-top" alt="Cats"> -->
             <div class="card-body">
                 <h5 class="card-title">Shop for Cats</h5>
                 <p class="card-text">Find the best toys and accessories for your feline friends!</p>
@@ -17,7 +22,8 @@
 
         <!-- Card for Dogs -->
         <div class="card" style="width: 18rem; margin: 0 15px;">
-            <img src="static\images\main_dog.jpg" class="card-img-top" alt="Dogs">
+            <img src="{% static 'images/main_dog.jpg' %}" class="card-img-top" alt="Dogs">
+            <!-- <img src="static\images\main_dog.jpg" class="card-img-top" alt="Dogs"> -->
             <div class="card-body">
                 <h5 class="card-title">Shop for Dogs</h5>
                 <p class="card-text">Discover toys and accessories for your loyal companions!</p>
