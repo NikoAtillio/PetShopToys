@@ -19,7 +19,8 @@
           <h5>$20.00</h5>   
         </div>
         </div>
-        <form action="/create-checkout-session" method="POST">  
+        <form action="{% url 'checkout' %}" method="POST">  
+          {% csrf_token %}
         <button type="submit" id="checkout-button">Checkout</button>    
         </form> 
     

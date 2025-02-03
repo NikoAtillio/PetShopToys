@@ -6,11 +6,11 @@ from django.http import HttpResponse
 def home(request):
     return render(request, 'index.html')
 
-def productscat(request):
-    return render(request, 'productscat.html')
-
 def productsdog(request):
     return render(request, 'productsdog.html')
+
+def productscat(request):
+    return render(request, 'productscat.html')
 
 def about(request):
     return render(request, 'about.html')
