@@ -4,8 +4,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from PetShopToys import views
 
-from PetShopToys import views
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='index'),
@@ -16,4 +14,5 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('payment/', include('payment.urls')), 
     path('shop/', include('shop.urls')),  
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
