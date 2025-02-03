@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+        <div class="text-center">
+        <h1>About Us</h1>
+        <div class="alert alert-info" role="alert">
+            We are committed to delivering the best pet products with care and quality!
+        </div>
+        <p>We are a passionate team dedicated to providing the best toys and accessories for your pets!</p>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <!-- Card for Our Mission -->
+        <div class="card" style="width: 18rem; margin: 0 15px;">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center"><i class="fas fa-paw"></i> Our Mission</h5>
+                <p class="card-text text-justify">
+                    Our mission is to bring joy to your pets by offering high-quality and innovative toys. 
+                    We aim to create a safe and fun environment for your pets, so they can thrive and enjoy every moment.
+                </p>
+            </div>
+        </div>
+
+        <!-- Card for Our Values -->
+        <div class="card" style="width: 18rem; margin: 0 15px;">
+            <div class="card-body d-flex flex-column">
+                
+                <h5 class="card-title text-center"><i class="fas fa-paw"></i>Our Values</h5>
+                <p class="card-text text-justify">
+                    We believe in sustainability, compassion, and customer satisfaction. Our products are carefully selected to ensure your pets get the best, while also being environmentally friendly.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+    </div>    
+{% endblock %}
