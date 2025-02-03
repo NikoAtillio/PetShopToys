@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import PaymentView, PaymentSuccessView, PaymentCancelView, PaymentErrorView, PaymentWebhookView
+from .views import PaymentView, PaymentSuccessView, PaymentCancelView, PaymentErrorView, PaymentWebhookView, home
 
 urlpatterns = {
+    path('', home, name='home'),
     path('payment/', PaymentView.as_view(), name='payment'),
     path('payment/success/', PaymentSuccessView.as_view(), name='payment_success'),
     path('payment/cancel/', PaymentCancelView.as_view(), name='payment_cancel'),
