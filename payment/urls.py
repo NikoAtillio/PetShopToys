@@ -1,11 +1,9 @@
 from django.urls import path
-from .views import PaymentView, PaymentSuccessView, PaymentCancelView, PaymentErrorView, PaymentWebhookView, home
+from . import views
 
-urlpatterns = {
-    path('', home, name='home'),
-    path('payment/', PaymentView.as_view(), name='payment'),
-    path('payment/success/', PaymentSuccessView.as_view(), name='payment_success'),
-    path('payment/cancel/', PaymentCancelView.as_view(), name='payment_cancel'),
-    path('payment/error/', PaymentErrorView.as_view(), name='payment_error'),
-    path('payment/webhook/', PaymentWebhookView.as_view(), name='payment_webhook'),
-}
+urlpatterns = [
+    #path('checkout/', views.checkout, name='checkout'),
+    #path('payment/success/', views.success, name='payment_success'),
+    #path('payment/cancel/', views.cancel, name='payment_cancel'),
+    path('test/', views.test, name='test'),
+]
