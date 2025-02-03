@@ -8,10 +8,11 @@ from PetShopToys import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', views.products, name='products'),
+    path('', views.home, name='index'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
-    path('', views.home, name='home'),
-    path('payment/', include('payment.urls')), 
-    path('shop/', include('shop.urls')),  
+    path('productscat/', views.productscat, name='productscat'),
+    path('productsdog/', views.productsdog, name='productsdog'),
+    path('payment/', include('payment.urls')),
+    path('shop/', include('shop.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
