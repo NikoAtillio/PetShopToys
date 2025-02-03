@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Shop for Dogs</h1>
+    <p>Discover toys and accessories for your loyal companions!</p>
+</div>
+
+<!-- List of Cat Accessories -->
+<div class="row mt-4">
+        <div class="col-md-4">
+        <div class="card h-100">
+            <!-- Image in Card Header -->
+            <img src="{% static 'images/collar_6.png' %}" class="card-img-top" alt="Cat Accessory">
+            <div class="card-body">
+                <h5 class="card-title">Cat Collar 1 - Plaid Cat Collar Grey</h5>
+                <p class="card-text">One size</p>
+                <p class="card-price">£ 3.25</p>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100">
+            <!-- Image in Card Header -->
+            <img src="{% static 'images/collar_5.png' %}" class="card-img-top" alt="Cat Accessory">
+            <div class="card-body">
+                <h5 class="card-title">Cat Collar 2 - Spotty Bow Tie Cat Collar Blue</h5>
+                <p class="card-text">One size</p>
+                <p class="card-price">£ 5.00</p>
+                <a href="#" class="btn btn-primary">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+{% endblock %}
