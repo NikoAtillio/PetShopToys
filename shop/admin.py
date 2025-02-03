@@ -18,3 +18,5 @@ class ProductAdmin(admin.ModelAdmin):
 class PetTypeAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
+
+
