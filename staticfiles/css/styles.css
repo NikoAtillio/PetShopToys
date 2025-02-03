@@ -1,0 +1,16 @@
+/* style.css */
+body {
+    background-color: #f0f0f0;  /* Just a basic style to check if the file loads */
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.7); 
+    backdrop-filter: blur(5px); 
+    border-radius: 10px; 
+    padding: 15px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
