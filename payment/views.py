@@ -28,7 +28,7 @@ def checkout(request):
             cancel_url=cancelurl,
     )
 
-    return redirect(checkout_session.url, code=303)
+    return  HttpResponse('test')
 
 
 
