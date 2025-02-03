@@ -16,7 +16,7 @@ def product_list(request, pet_type_slug=None, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug, pet_type=pet_type)
         products = products.filter(category=category)
-    return render(request, 'shop/product/list.html', {
+    return render(request, 'products.html', {
         'pet_type': pet_type,
         'category': category,
         'pet_types': pet_types,

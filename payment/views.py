@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse
 import stripe
 from django.conf import settings
@@ -10,11 +10,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 def checkout(request):
     successurl = 'payment/success/'
     cancelurl = 'payment/cancel/'
-    print(settings.STRIPE_SECRET_KEY)
-    print(settings.STRIPE_SECRET_KEY)
-    print(settings.STRIPE_SECRET_KEY)
-    print(settings.STRIPE_SECRET_KEY)
-    print(settings.STRIPE_SECRET_KEY)
+   
     checkout_session = stripe.checkout.Session.create(
             line_items=[
                 {
@@ -28,7 +24,7 @@ def checkout(request):
             cancel_url=cancelurl,
     )
 
-    return  HttpResponse('test')
+    return HttpResonse('test')
 
 
 
@@ -38,3 +34,7 @@ def success (request):
 
 def cancel (request):
     return render(request, 'payment/cancel.html')
+
+
+def test(request):
+    return HttpResponse('test')
