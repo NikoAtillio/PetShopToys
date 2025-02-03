@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 # custom apps
     'accounts',
     'shop',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -134,4 +135,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STRIPE_PUBLIC_KEY = ""
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
+print(STRIPE_SECRET_KEY)
+print(STRIPE_SECRET_KEY)
+print(STRIPE_SECRET_KEY)
+print(STRIPE_SECRET_KEY)
+print(STRIPE_SECRET_KEY)
 STRIPE_WEBHOOK_SECRET = ""
