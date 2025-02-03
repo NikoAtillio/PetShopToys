@@ -23,3 +23,11 @@ def create_checkout_session():
         cancel_url='http://cancel.html',
         customer_email=user_email,
     )
+
+
+
+def product_view(request):
+    return render(request, 'payment/product.html')
+
+def checkout_view(request):
+    return render(request, 'payment/checkout.html')

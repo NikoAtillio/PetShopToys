@@ -11,3 +11,6 @@ def about(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def payment(request):
+    return render(request, 'checkout.html')

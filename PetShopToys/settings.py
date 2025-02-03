@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -122,3 +123,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STRIPE_PUBLIC_KEY = ""
+STRIPE_SECRET_KEY = "sk_test_51QnJ47BMzPNz1e4lHz4rrrWTIQJGnlnnpkzrQm5yRR3qThq4taxKZUbwbf4q92fWxAonmYcDOQuOaTYegXgft83w00ClfFfrV0
+STRIPE_WEBHOOK_SECRET = ""
