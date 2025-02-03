@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import PetType, Category, Product
 
 # Create your views here.
+
 def product_list(request, pet_type_slug=None, category_slug=None):
     pet_type = None
     category = None
@@ -28,3 +29,13 @@ def product_detail(request, id, slug):
     return render(request, 'shop/product/detail.html', {
         'product': product
     })
+
+def shop_home(request):
+    return render(request, 'shop_home.html')
+
+def dog_products(request):
+    return render(request, 'dogs/dog_products.html')
+
+def cat_products(request):
+    return render(request, 'cats/cat_products.html')
+
