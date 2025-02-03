@@ -24,6 +24,10 @@ def create_checkout_session():
         customer_email=user_email,
     )
 
-    return session 
 
-        
+
+def product_view(request):
+    return render(request, 'payment/product.html')
+
+def checkout_view(request):
+    return render(request, 'payment/checkout.html')
