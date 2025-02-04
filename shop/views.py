@@ -70,7 +70,7 @@ def checkout(request):
             line_items=[
                 {
                     'price_data': {
-                        'currency': 'usd',
+                        'currency': 'gbp',
                         'product_data': {
                             'name': product.name,
                         },
@@ -83,7 +83,10 @@ def checkout(request):
             success_url=successurl,
             cancel_url=cancelurl,
         )
-
+        context = {
+            'product': product,
+            'checkout_session_url': checkout_session.url,
+        }
         return redirect(checkout_session.url)
     else:
         return redirect('productscat')  # or another relevant page
