@@ -1,0 +1,290 @@
+[
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Cat Bed 1 - Clamshell Cat Bed Blue Spotty",
+      "slug": "cat-bed-1-clamshell-cat-bed-blue-spotty",
+      "description": "One size",
+      "price": "11.20",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/cat_bed2.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Cat Bed 2 - Igloo Cat Bed Grey Spotty",
+      "slug": "cat-bed-2-igloo-cat-bed-grey-spotty",
+      "description": "One size",
+      "price": "19.00",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/cat_bed3.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "Cat Bed 3 - Velouria Hooded Cat Bed Brown",
+      "slug": "cat-bed-3-velouria-hooded-cat-bed-brown",
+      "description": "One size",
+      "price": "14.00",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/cat_bed4.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "Dog lead 1 - Flexi New Classic Extending Dog Lead 8m Black Large",
+      "slug": "dog-lead-1-flexi-new-classic-extending-dog-lead-8m-black-large",
+      "description": "Large",
+      "price": "20.80",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/dog_lead1.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+      "category": 2,
+      "name": "Dog lead 2 - Flexi New Classic Extending Dog Lead 8m Red Small",
+      "slug": "dog-lead-2-flexi-new-classic-extending-dog-lead-8m-red-small",
+      "description": "Small",
+      "price": "13.20",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/dog_lead2.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+      "category": 2,
+      "name": "Dog lead 3 - Flexi New Neon Extending Dog Lead 5m Yellow Medium",
+      "slug": "dog-lead-3-flexi-new-neon-extending-dog-lead-5m-yellow-medium",
+      "description": "Medium",
+      "price": "16.00",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/dog_lead3.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 7,
+    "fields": {
+      "category": 2,
+      "name": "Dog Bed 1 - Explorer Dog Crate Mat Slate Grey",
+      "slug": "dog-bed-1-explorer-dog-crate-mat-slate-grey",
+      "description": "Small",
+      "price": "14.00",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/dog_bed1.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 8,
+    "fields": {
+      "category": 2,
+      "name": "Dog Bed 2 - Bone Pillow Mattress Dog Bed Grey",
+      "slug": "dog-bed-2-bone-pillow-mattress-dog-bed-grey",
+      "description": "Medium",
+      "price": "12.00",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/dog_bed2.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 9,
+    "fields": {
+      "category": 2,
+      "name": "Dog Bed 3 - Noble Chenille Bolstered Dog Bed Grey",
+      "slug": "dog-bed-3-noble-chenille-bolstered-dog-bed-grey",
+      "description": "Large",
+      "price": "75.00",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/dog_bed3.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 10,
+    "fields": {
+      "category": 2,
+      "name": "Dog Food 1 - Royal Canin Size Health Nutrition Giant Puppy Dry Food",
+      "slug": "dog-food-1-royal-canin-size-health-nutrition-giant-puppy-dry-food",
+      "description": "15kg",
+      "price": "60.00",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/dog_food1.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 11,
+    "fields": {
+      "category": 2,
+      "name": "Dog Food 2 - Royal Canin Veterinary Hypoallergic Adult Wet Dog Food",
+      "slug": "dog-food-2-royal-canin-veterinary-hypoallergic-adult-wet-dog-food",
+      "description": "12 x 400g",
+      "price": "46.49",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/dog_food2.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 12,
+    "fields": {
+      "category": 2,
+      "name": "Dog Food 3 - James Wellbeloved Senior Dry Dog Food Turkey & Rice",
+      "slug": "dog-food-3-james-wellbeloved-senior-dry-dog-food-turkey-rice",
+      "description": "15kg",
+      "price": "52.99",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/dog_food3.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 13,
+    "fields": {
+      "category": 1,
+      "name": "Cat Collar 1 - Plaid Cat Collar Grey",
+      "slug": "cat-collar-1-plaid-cat-collar-grey",
+      "description": "One size",
+      "price": "3.25",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/collar_6.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 14,
+    "fields": {
+      "category": 1,
+      "name": "Cat Collar 2 - Spotty Bow Tie Cat Collar Blue",
+      "slug": "cat-collar-2-spotty-bow-tie-cat-collar-blue",
+      "description": "One size",
+      "price": "5.00",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/collar_5.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 15,
+    "fields": {
+      "category": 1,
+      "name": "Cat Collar 3 - Nylon Cat Collar Red",
+      "slug": "cat-collar-3-nylon-cat-collar-red",
+      "description": "One size",
+      "price": "2.50",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/collar_4.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 16,
+    "fields": {
+      "category": 1,
+      "name": "Cat Food 1 - Royal Canin Feline Instinctive Adult Wet Cat Food In Gravy",
+      "slug": "cat-food-1-royal-canin-feline-instinctive-adult-wet-cat-food-in-gravy",
+      "description": "48 x 85g",
+      "price": "36.09",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/cat_food1.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 17,
+    "fields": {
+      "category": 1,
+      "name": "Cat Food 2 - Royal Canin British Shorthair Adult Dry Cat Food In 10kg",
+      "slug": "cat-food-2-royal-canin-british-shorthair-adult-dry-cat-food-in-10kg",
+      "description": "10kg",
+      "price": "78.49",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/cat_food2.png"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 18,
+    "fields": {
+      "category": 1,
+      "name": "Cat Food 3 - Royal Canin Feline Fit Dry Adult Cat Food 10kg",
+      "slug": "cat-food-3-royal-canin-feline-fit-dry-adult-cat-food-10kg",
+      "description": "10kg",
+      "price": "59.49",
+      "stock": 10,
+      "available": true,
+      "created": "2023-10-01T00:00:00Z",
+      "updated": "2023-10-01T00:00:00Z",
+      "image": "images/cat_food3.png"
+    }
+  }
+]
