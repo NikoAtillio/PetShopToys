@@ -37,8 +37,14 @@ def product_detail(request, id, slug):
 def shop_home(request):
     return render(request, 'shop_home.html')
 
+
+
 def productsdog(request):
     return render(request, 'products/productsdog.html')
+    context = {
+            'product': product,
+            'checkout_session_url': checkout_session.url,
+        }
 
 def productscat(request):
     return render(request, 'products/productscat.html')
