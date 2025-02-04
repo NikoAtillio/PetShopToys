@@ -33,10 +33,10 @@ def product_detail(request, id, slug):
 def shop_home(request):
     return render(request, 'shop_home.html')
 
-def dog_products(request):
-    return render(request, 'dogs/dog_products.html')
+def productsdog(request):
+    return render(request, 'products/productsdog.html')
 
-def cat_products(request):
-    return render(request, 'cats/cat_products.html')
+def productscat(request):
+    return render(request, 'products/productscat.html')
 
 

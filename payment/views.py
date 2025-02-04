@@ -24,8 +24,6 @@ def checkout(request):
             cancel_url=cancelurl,
     )
 
-    return HttpResonse('test')
-
 
 
 def success (request):
