@@ -39,4 +39,13 @@ def productsdog(request):
 def productscat(request):
     return render(request, 'products/productscat.html')
 
-
+def checkout(request):
+    if request.method == "POST":
+        product_id = request.POST.get('product_id')
+        product = get_object_or_404(Product, id=product_id)
+        context = {
+            'product': product,
+        }
+        return render(request, 'checkout.html', context)
+    else:
+        return render(request, 'checkout.html')
