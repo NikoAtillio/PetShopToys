@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
 #login specific
@@ -59,3 +59,5 @@ def loginPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('login.html') 
+
+
