@@ -8,21 +8,19 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Checkout</h1>   
-    <section>
-      <div class="product">
-        <img src="
-        https://i.imgur     
-        .com/EHyR2nP.png" alt="The cover of Stubborn Attachments" />
+<h1>Checkout</h1>
+<section>
+    <div class="product">
+        <img src="{{ product.image_url }}" alt="{{ product.name }}" />
         <div class="description">
-          <h3>Stubborn Attachments</h3>
-          <h5>$20.00</h5>   
+            <h3>{{ product.name }}</h3>
+            <h5>{{ product.price }}</h5>
         </div>
-        </div>
-        <form action="{% url 'checkout' %}" method="POST">  
-          {% csrf_token %}
-        <button type="submit" id="checkout-button">Checkout</button>    
-        </form> 
-    
-
-    </section>
+    </div>
+    <form action="{% url 'checkout' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <button type="submit" id="checkout-button">Checkout</button>
+    </form>
+</section>
+{% endblock %}
