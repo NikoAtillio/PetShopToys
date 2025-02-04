@@ -8,19 +8,18 @@
 {% endblock %}
 
 {% block content %}
-<h1>Checkout</h1>
-<section>
-    <div class="product">
-        <img src="{{ product.image_url }}" alt="{{ product.name }}" />
-        <div class="description">
-            <h3>{{ product.name }}</h3>
-            <h5>{{ product.price }}</h5>
+    <h1>Checkout</h1>   
+    <section>
+        <div class="product">
+            <img src="{{ product.image_url }}" alt="{{ product.name }}" />
+            <div class="description">
+                <h3>{{ product.name }}</h3>
+                <h5>£{{ product.price }}</h5>   
+            </div>
         </div>
-    </div>
-    <form action="{% url 'checkout' %}" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="product_id" value="{{ product.id }}">
-        <button type="submit" id="checkout-button">Checkout</button>
-    </form>
-</section>
+        <form action="{{ checkout_session_url }}" method="POST">  
+            {% csrf_token %}
+            <button type="submit" id="checkout-button">Proceed to Checkout</button>    
+        </form> 
+    </section>
 {% endblock %}
