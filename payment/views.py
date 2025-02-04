@@ -92,7 +92,7 @@ def checkout(request):
         cancel_url=cancelurl,
     )
 
-    return redirect(checkout_session.url)
+    return HttpResonse('test')
 
 
 def success(request):
