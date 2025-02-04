@@ -14,7 +14,6 @@ urlpatterns = [
     path('productsdog/', views.productsdog, name='productsdog'),
     path('payment/', include('payment.urls')),
     path('shop/', include('shop.urls')),
-    #login and register specific
     path('register/', views.registerPage, name='register'),
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
