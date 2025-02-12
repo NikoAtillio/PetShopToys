@@ -16,7 +16,7 @@
                 <h5 class="card-title">Dog lead 1 - Flexi New Classic Extending Dog Lead 8m Black Large</h5>
                 <p class="card-text">Large</p>
                 <p class="card-price">£ 20.80</p>
-                <form action="{% url 'checkout' %}" method="POST">
+                <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="1">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
@@ -32,7 +32,7 @@
                 <h5 class="card-title">Dog lead 2 - Flexi New Classic Extending Dog Lead 8m Red Small</h5>
                 <p class="card-text">Small</p>
                 <p class="card-price">£ 13.20</p>
-                <form action="{% url 'checkout' %}" method="POST">
+                <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="2">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
@@ -48,7 +48,7 @@
                 <h5 class="card-title">Dog lead 3 - Flexi New Neon Extending Dog Lead 5m Yellow Medium</h5>
                 <p class="card-text">Medium</p>
                 <p class="card-price">£ 16.00</p>
-                <form action="{% url 'checkout' %}" method="POST">
+                <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="3">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
@@ -64,7 +64,7 @@
                 <h5 class="card-title">Dog Bed 1 - Explorer Dog Crate Mat Slate Grey</h5>
                 <p class="card-text">Small</p>
                 <p class="card-price">£ 14.00</p>
-                <form action="{% url 'checkout' %}" method="POST">
+                <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="4">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
@@ -80,7 +80,7 @@
                 <h5 class="card-title">Dog Bed 2 - Bone Pillow Mattress Dog Bed Grey</h5>
                 <p class="card-text">Medium</p>
                 <p class="card-price">£ 12.00</p>
-                <form action="{% url 'checkout' %}" method="POST">
+                <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="5">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
@@ -96,7 +96,7 @@
                 <h5 class="card-title">Dog Bed 3 - Noble Chenille Bolstered Dog Bed Grey</h5>
                 <p class="card-text">Large</p>
                 <p class="card-price">£ 75.00</p>
-                <form action="{% url 'checkout' %}" method="POST">
+                <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="6">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
@@ -112,7 +112,7 @@
                 <h5 class="card-title">Dog Food 1 - Royal Canin Size Health Nutrition Giant Puppy Dry Food</h5>
                 <p class="card-text">15kg</p>
                 <p class="card-price">£ 60.00</p>
-                <form action="{% url 'checkout' %}" method="POST">
+                <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="7">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
@@ -128,7 +128,7 @@
                 <h5 class="card-title">Dog Food 2 - Royal Canin Veterinary Hypoallergic Adult Wet Dog Food</h5>
                 <p class="card-text">12 x 400g</p>
                 <p class="card-price">£ 46.49</p>
-                <form action="{% url 'checkout' %}" method="POST">
+                <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="8">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
@@ -144,7 +144,7 @@
                 <h5 class="card-title">Dog Food 3 - James Wellbeloved Senior Dry Dog Food Turkey & Rice</h5>
                 <p class="card-text">15kg</p>
                 <p class="card-price">£ 52.99</p>
-                <form action="{% url 'checkout' %}" method="POST">
+                <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
                     <input type="hidden" name="product_id" value="9">
                     <button type="submit" class="btn btn-primary">Buy Now</button>

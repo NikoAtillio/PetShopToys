@@ -1,11 +1,5 @@
-from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
-from django.urls import reverse
+from django.shortcuts import render, get_object_or_404
 from .models import PetType, Category, Product
-import stripe
-from django.conf import settings
-from shop.models import Product
-
-# Create your views here.
 
 def product_list(request, pet_type_slug=None, category_slug=None):
     pet_type = None
@@ -37,71 +31,8 @@ def product_detail(request, id, slug):
 def shop_home(request):
     return render(request, 'shop_home.html')
 
-
-
 def productsdog(request):
     return render(request, 'products/productsdog.html')
-    context = {
-            'product': product,
-            'checkout_session_url': checkout_session.url,
-        }
 
 def productscat(request):
     return render(request, 'products/productscat.html')
-
-def checkout(request):
-    if request.method == "POST":
-        product_id = request.POST.get('product_id')
-        product = get_object_or_404(Product, id=product_id)
-        context = {
-            'product': product,
-        }
-        return render(request, 'checkout.html', context)
-    else:
-        return render(request, 'checkout.html')
-    
-    
-stripe.api_key = settings.STRIPE_SECRET_KEY
-
-def checkout(request):
-    if request.method == "POST":
-        product_id = request.POST.get('product_id')
-        product = get_object_or_404(Product, id=product_id)
-        
-        successurl = request.build_absolute_uri(reverse('success'))
-        cancelurl = request.build_absolute_uri(reverse('cancel'))
-   
-        checkout_session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
-            line_items=[
-                {
-                    'price_data': {
-                        'currency': 'gbp',
-                        'product_data': {
-                            'name': product.name,
-                        },
-                        'unit_amount': int(product.price * 100),  # Stripe expects the amount in cents
-                    },
-                    'quantity': 1,
-                },
-            ],
-            mode='payment',
-            success_url=successurl,
-            cancel_url=cancelurl,
-        )
-        context = {
-            'product': product,
-            'checkout_session_url': checkout_session.url,
-        }
-        return redirect(checkout_session.url)
-    else:
-        return redirect('productscat')  # or another relevant page
-
-def success(request):
-    return render(request, 'success.html')
-
-def cancel(request):
-    return render(request, 'cancel.html')
-
-def test(request):
-    return HttpResponse('test')

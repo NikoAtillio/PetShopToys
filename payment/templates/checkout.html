@@ -17,9 +17,12 @@
                 <h5>£{{ product.price }}</h5>   
             </div>
         </div>
-        <form action="{{ checkout_session_url }}" method="POST">  
+        <form action="{% url 'payment:create_stripe_checkout_session' %}" method="POST">  
             {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ product.id }}">
             <button type="submit" id="checkout-button">Proceed to Checkout</button>    
         </form> 
+         <!-- Back to Products button -->
+        <a href="{% url 'productscat' %}" class="btn btn-secondary">Back to Products</a>
     </section>
 {% endblock %}

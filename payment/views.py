@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from django.urls import reverse
 import stripe
 from django.conf import settings
-from .models import Product
+from shop.models import Product
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -10,16 +11,27 @@ def checkout(request):
     if request.method == "POST":
         product_id = request.POST.get('product_id')
         product = get_object_or_404(Product, id=product_id)
+        context = {
+            'product': product,
+        }
+        return render(request, 'checkout.html', context)
+    else:
+        return redirect('shop:productscat')  # Redirect to the product page if accessed directly
+
+def create_stripe_checkout_session(request):
+    if request.method == "POST":
+        product_id = request.POST.get('product_id')
+        product = get_object_or_404(Product, id=product_id)
         
-        successurl = request.build_absolute_uri(reverse('success'))
-        cancelurl = request.build_absolute_uri(reverse('cancel'))
+        successurl = request.build_absolute_uri(reverse('payment:success'))  # Use 'payment' namespace
+        cancelurl = request.build_absolute_uri(reverse('payment:cancel'))    # Use 'payment' namespace
    
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items=[
                 {
                     'price_data': {
-                        'currency': 'usd',
+                        'currency': 'gbp',
                         'product_data': {
                             'name': product.name,
                         },
@@ -32,19 +44,15 @@ def checkout(request):
             success_url=successurl,
             cancel_url=cancelurl,
         )
-
         return redirect(checkout_session.url)
     else:
-        return redirect('productscat')  # or another relevant page
-
+        return redirect('shop:productscat')  # Redirect to the product page if accessed directly
 
 def success(request):
     return render(request, 'success.html')
 
-
 def cancel(request):
     return render(request, 'cancel.html')
-
 
 def test(request):
     return HttpResponse('test')
