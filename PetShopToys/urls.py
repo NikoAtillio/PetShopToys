@@ -17,4 +17,5 @@ urlpatterns = [
     path('register/', views.registerPage, name='register'),
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
+    path('shop/', include('shop.urls', namespace='shop')),  # Make sure this line exists
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

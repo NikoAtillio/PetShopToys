@@ -19,7 +19,7 @@
                 <p class="card-price">£ 3.25</p>
                 <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="1">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
                 </form>            
             </div>
@@ -36,7 +36,7 @@
                 <p class="card-price">£ 5.00</p>
                 <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="2">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
                 </form>
             </div>
@@ -52,7 +52,7 @@
                 <p class="card-price">£ 2.50</p>
                 <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="3">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
                 </form>
             </div>
@@ -68,7 +68,7 @@
                 <p class="card-price">£ 11.20</p>
                 <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="4">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
                 </form>
             </div>
@@ -84,7 +84,7 @@
                 <p class="card-price">£ 19.00</p>
                 <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="5">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
                 </form>
             </div>
@@ -100,7 +100,7 @@
                 <p class="card-price">£ 14.00</p>
                 <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="6">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
                 </form>
             </div>
@@ -116,7 +116,7 @@
                 <p class="card-price">£ 36.09</p>
                 <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="7">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
                 </form>
             </div>
@@ -132,7 +132,7 @@
                 <p class="card-price">£ 78.49</p>
                 <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="8">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
                 </form>
             </div>
@@ -148,7 +148,7 @@
                 <p class="card-price">£ 59.49</p>
                 <form action="{% url 'payment:checkout' %}" method="POST">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="9">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
                     <button type="submit" class="btn btn-primary">Buy Now</button>
                 </form>
             </div>
