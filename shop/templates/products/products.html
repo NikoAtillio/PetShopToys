@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="text-center">
+  <h1>
+    {% if pet_type %} Shop for {{ pet_type.name }} {% else %} Shop for All Pets
+    {% endif %}
+  </h1>
+  <p class="mb-3">
+    <!-- prettier-ignore -->
+    {% if category %}
+       Find the best products in the {{ category.name }} category!
+    {% elif pet_type %}
+        Find the best toys and accessories for your {{ pet_type.name }}!
+    {% else %}
+        Find the best toys and accessories for your pets!
+    {% endif %}
+  </p>
+</div>
+
+<div class="product-grid">
+  {% for product in products %}
+  <div class="card h-100">
+    <img
+      src="{{ product.image.url }}"
+      class="card-img-top"
+      alt="{{ product.name }}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <p class="card-price">{{ product.price }}</p>
+      <form action="{% url 'checkout' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="product_id" value="{{ product.id }}" />
+        <button type="submit" class="btn btn-primary">Buy Now</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
