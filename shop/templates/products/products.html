@@ -7,7 +7,6 @@
     {% endif %}
   </h1>
   <p class="mb-3">
-    <!-- prettier-ignore -->
     {% if category %}
        Find the best products in the {{ category.name }} category!
     {% elif pet_type %}
@@ -16,6 +15,28 @@
         Find the best toys and accessories for your pets!
     {% endif %}
   </p>
+</div>
+
+<!-- Category Filter Bar -->
+<div class="category-filter mb-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="d-flex justify-content-center flex-wrap">
+          <a href="{% url 'shop:products' %}" 
+             class="btn {% if not category %}btn-primary{% else %}btn-outline-primary{% endif %} m-1">
+            All
+          </a>
+          {% for cat in categories %}
+          <a href="{% url 'shop:products' %}?category={{ cat.slug }}" 
+             class="btn {% if category.slug == cat.slug %}btn-primary{% else %}btn-outline-primary{% endif %} m-1">
+            {{ cat.name }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="product-grid">
@@ -39,4 +60,23 @@
   </div>
   {% endfor %}
 </div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.category-filter {
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    border-radius: 0.25rem;
+}
+
+.category-filter .btn {
+    margin: 0.25rem;
+    min-width: 100px;
+}
+
+.product-grid {
+    margin-top: 2rem;
+}
+</style>
 {% endblock %}

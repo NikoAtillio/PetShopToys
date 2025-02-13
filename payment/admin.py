@@ -1,10 +1,50 @@
 from django.contrib import admin
-from .models import UserPayment    
-# Register your models here.
+from .models import UserPayment
 
 @admin.register(UserPayment)
 class UserPaymentAdmin(admin.ModelAdmin):
-    list_display = ['user', 'stripe_customer_id', 'stripe_checkout_session_id', 'stripe_product_id', 'product_name', 'quantity', 'price', 'currency', 'has_paid']
-    list_filter = ['has_paid']
+    list_display = [
+        'user',
+        'product_name',
+        'price',
+        'currency',
+        'has_paid',
+        'created_at',
+        'stripe_checkout_session_id'
+    ]
+    list_filter = ['has_paid', 'created_at']
     list_editable = ['has_paid']
-    ordering = ['-payment__payment_date']  
+    ordering = ['-created_at']
+    search_fields = ['user__username', 'product_name', 'stripe_checkout_session_id']
+
+    readonly_fields = [
+        'user',
+        'stripe_customer_id',
+        'stripe_checkout_session_id',
+        'stripe_product_id',
+        'product_name',
+        'quantity',
+        'price',
+        'currency',
+        'created_at',
+        'updated_at'
+    ]
+
+    fieldsets = (
+        ('User Information', {
+            'fields': ('user', 'product_name', 'quantity', 'price', 'currency')
+        }),
+        ('Payment Status', {
+            'fields': ('has_paid', 'created_at', 'updated_at')
+        }),
+        ('Stripe Information', {
+            'fields': ('stripe_customer_id', 'stripe_checkout_session_id', 'stripe_product_id'),
+            'classes': ('collapse',)
+        }),
+    )
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
