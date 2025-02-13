@@ -31,17 +31,11 @@ def product_list(request, pet_type_slug=None):
         # Get category from query parameter
         category_slug = request.GET.get('category')
         if category_slug:
-            if pet_type:
-                # Get category that has products for this pet type
-                category = get_object_or_404(
-                    Category,
-                    slug=category_slug,
-                    products__pet_type=pet_type
-                )
-            else:
-                category = get_object_or_404(Category, slug=category_slug)
-            products = products.filter(category=category)
-            logger.info(f"Filtered by category: {category.name}, found {products.count()} products")
+            # Remove the get_object_or_404 and directly filter products
+            category = Category.objects.filter(slug=category_slug).first()
+            if category:
+                products = products.filter(category=category)
+                logger.info(f"Filtered by category: {category.name}, found {products.count()} products")
 
         # Sort products by name
         products = products.order_by('name')

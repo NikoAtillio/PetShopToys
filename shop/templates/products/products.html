@@ -19,25 +19,38 @@
 
 <!-- Category Filter Bar -->
 <div class="category-filter mb-4">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="d-flex justify-content-center flex-wrap">
-          <a href="{% url 'shop:products' %}" 
-             class="btn {% if not category %}btn-primary{% else %}btn-outline-primary{% endif %} m-1">
-            All
-          </a>
-          {% for cat in categories %}
-          <a href="{% url 'shop:products' %}?category={{ cat.slug }}" 
-             class="btn {% if category.slug == cat.slug %}btn-primary{% else %}btn-outline-primary{% endif %} m-1">
-            {{ cat.name }}
-          </a>
-          {% endfor %}
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="d-flex justify-content-center flex-wrap">
+            {% if pet_type %}
+              <a href="{% url 'shop:product_list_by_pet_type' pet_type.slug %}" 
+                 class="btn {% if not category %}btn-primary{% else %}btn-outline-primary{% endif %} m-1">
+                All
+              </a>
+              {% for cat in categories %}
+              <a href="{% url 'shop:product_list_by_pet_type' pet_type.slug %}?category={{ cat.slug }}" 
+                 class="btn {% if category.slug == cat.slug %}btn-primary{% else %}btn-outline-primary{% endif %} m-1">
+                {{ cat.name }}
+              </a>
+              {% endfor %}
+            {% else %}
+              <a href="{% url 'shop:products' %}" 
+                 class="btn {% if not category %}btn-primary{% else %}btn-outline-primary{% endif %} m-1">
+                All
+              </a>
+              {% for cat in categories %}
+              <a href="{% url 'shop:products' %}?category={{ cat.slug }}" 
+                 class="btn {% if category.slug == cat.slug %}btn-primary{% else %}btn-outline-primary{% endif %} m-1">
+                {{ cat.name }}
+              </a>
+              {% endfor %}
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 <div class="product-grid">
   {% for product in products %}
