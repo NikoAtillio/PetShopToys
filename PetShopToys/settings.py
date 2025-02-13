@@ -56,7 +56,8 @@ ROOT_URLCONF = 'PetShopToys.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'PetShopToys', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'PetShopToys', 'templates'),
+            os.path.join(BASE_DIR, 'shop', 'templates'),] ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = [
 

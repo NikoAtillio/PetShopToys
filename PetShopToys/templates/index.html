@@ -1,33 +1,48 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="text-center">
+  <h1>Welcome to Pet Shop Toys!</h1>
+  <p>Find the best for your pets!</p>
+</div>
 
-{% load static %}
-
-{% block content %}
-    <div class="text-center">
-        <h1>Welcome to Pet Shop Toys!</h1>
-        <p>Find the best for your pets!</p>
+<div class="d-flex justify-content-center mt-4">
+  <!-- Card for Cats -->
+  <div class="card" style="width: 18rem; margin: 0 15px">
+    <img
+      src="{% static 'images/main_cat.jpg' %}"
+      class="card-img-top"
+      alt="Cats"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Shop for Cats</h5>
+      <p class="card-text">
+        Find the best toys and accessories for your feline friends!
+      </p>
+      <a
+        href="{% url 'product_list_by_pet_type' 'cats' %}"
+        class="btn btn-primary"
+        >Shop Now</a
+      >
     </div>
+  </div>
 
-    <div class="d-flex justify-content-center mt-4">
-        <!-- Card for Cats -->
-        <div class="card" style="width: 18rem; margin: 0 15px;">
-            <img src="{% static 'images/main_cat.jpg' %}" class="card-img-top" alt="Cats">
-            <div class="card-body">
-                <h5 class="card-title">Shop for Cats</h5>
-                <p class="card-text">Find the best toys and accessories for your feline friends!</p>
-                <a href="{% url 'productscat' %}" class="btn btn-primary">Shop Now</a>
-            </div>
-        </div>
-
-        <!-- Card for Dogs -->
-        <div class="card" style="width: 18rem; margin: 0 15px;">
-            <img src="{% static 'images/main_dog.jpg' %}" class="card-img-top" alt="Dogs">
-            <div class="card-body">
-                <h5 class="card-title">Shop for Dogs</h5>
-                <p class="card-text">Discover toys and accessories for your loyal companions!</p>
-                <a href="{% url 'productsdog' %}" class="btn btn-primary">Shop Now</a>
-            </div>
-        </div>
+  <!-- Card for Dogs -->
+  <div class="card" style="width: 18rem; margin: 0 15px">
+    <img
+      src="{% static '/images/main_dog.jpg' %}"
+      class="card-img-top"
+      alt="Dogs"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Shop for Dogs</h5>
+      <p class="card-text">
+        Discover toys and accessories for your loyal companions!
+      </p>
+      <a
+        href="{% url 'product_list_by_pet_type' 'dogs' %}"
+        class="btn btn-primary"
+        >Shop Now</a
+      >
     </div>
+  </div>
+</div>
 {% endblock %}
-

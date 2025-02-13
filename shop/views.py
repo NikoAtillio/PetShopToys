@@ -3,7 +3,7 @@ from django.urls import reverse
 from .models import PetType, Category, Product
 import stripe
 from django.conf import settings
-from shop.models import Product
+from shop.models import Product, Category, PetType
 
 # Create your views here.
 
@@ -15,12 +15,11 @@ def product_list(request, pet_type_slug=None, category_slug=None):
     products = Product.objects.filter(available=True)
     if pet_type_slug:
         pet_type = get_object_or_404(PetType, slug=pet_type_slug)
-        categories = categories.filter(pet_type=pet_type)
-        products = products.filter(category__pet_type=pet_type)
+        products = products.filter(pet_type=pet_type)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug, pet_type=pet_type)
         products = products.filter(category=category)
-    return render(request, 'products.html', {
+    return render(request, 'products/products.html', {
         'pet_type': pet_type,
         'category': category,
         'pet_types': pet_types,
@@ -38,7 +37,7 @@ def shop_home(request):
     return render(request, 'shop_home.html')
 
 def productsdog(request):
-    return render(request, 'products/productsdog.html')
+    return render(request, 'products/products/dogs.html')
 
 def productscat(request):
     return render(request, 'products/productscat.html')
