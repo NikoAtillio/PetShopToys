@@ -1,8 +1,11 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block content %}
 <div class="text-center">
   <h1>Welcome to Pet Shop Toys!</h1>
   <p>Find the best for your pets!</p>
-  <a href="{% url 'products' %}" class="btn btn-primary">Shop All Products</a>
+  <a href="{% url 'shop:products' %}" class="btn btn-primary">Shop All Products</a>
 </div>
 
 <div class="d-flex justify-content-center mt-4">
@@ -19,7 +22,7 @@
         Find the best toys and accessories for your feline friends!
       </p>
       <a
-        href="{% url 'product_list_by_pet_type' 'cats' %}"
+        href="{% url 'shop:product_list_by_pet_type' 'cats' %}"
         class="btn btn-primary"
         >Shop Now</a
       >
@@ -29,7 +32,7 @@
   <!-- Card for Dogs -->
   <div class="card" style="width: 18rem; margin: 0 15px">
     <img
-      src="{% static '/images/main_dog.jpg' %}"
+      src="{% static 'images/main_dog.jpg' %}"
       class="card-img-top"
       alt="Dogs"
     />
@@ -39,7 +42,7 @@
         Discover toys and accessories for your loyal companions!
       </p>
       <a
-        href="{% url 'product_list_by_pet_type' 'dogs' %}"
+        href="{% url 'shop:product_list_by_pet_type' 'dogs' %}"
         class="btn btn-primary"
         >Shop Now</a
       >
