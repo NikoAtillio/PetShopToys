@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
 <div class="text-center">
   <h1>
     {% if pet_type %} Shop for {{ pet_type.name }} {% else %} Shop for All Pets
@@ -28,7 +30,7 @@
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">{{ product.description }}</p>
       <p class="card-price">{{ product.price }}</p>
-      <form action="{% url 'checkout' %}" method="POST">
+      <form action="{% url 'payment:checkout' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="product_id" value="{{ product.id }}" />
         <button type="submit" class="btn btn-primary">Buy Now</button>

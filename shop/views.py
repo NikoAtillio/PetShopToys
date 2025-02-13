@@ -19,7 +19,7 @@ def product_list(request, pet_type_slug=None, category_slug=None):
         products = products.filter(category=category)
 
     logger.debug(f"Products found: {products.count()}")
-    return render(request, 'shop/products.html', {
+    return render(request, 'products/products.html', {  
         'pet_type': pet_type,
         'category': category,
         'pet_types': pet_types,
@@ -27,11 +27,10 @@ def product_list(request, pet_type_slug=None, category_slug=None):
         'products': products
     })
 
-def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    return render(request, 'shop/product/detail.html', {
-        'product': product
+def search_products(request):
+    query = request.GET.get('q', '')
+    products = Product.objects.filter(name__icontains=query, available=True)
+    return render(request, 'search.html', {  
+        'query': query,
+        'products': products
     })
-
-def shop_home(request):
-    return render(request, 'shop/shop_home.html')

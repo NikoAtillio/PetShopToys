@@ -12,12 +12,6 @@ from django.contrib import messages
 def home(request):
     return render(request, 'index.html')
 
-def productsdog(request):
-    return render(request, 'products/productsdog.html')
-
-def productscat(request):
-    return render(request, 'products/productscat.html')
-
 def about(request):
     return render(request, 'about.html')
 
