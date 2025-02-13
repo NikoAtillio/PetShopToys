@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import PetType, Category, Product
-import logging
+import logging, Category, PetType
 
 logger = logging.getLogger(__name__)
 
@@ -13,13 +13,11 @@ def product_list(request, pet_type_slug=None, category_slug=None):
 
     if pet_type_slug:
         pet_type = get_object_or_404(PetType, slug=pet_type_slug)
-        categories = categories.filter(pet_type=pet_type)
-        products = products.filter(category__pet_type=pet_type)
+        products = products.filter(pet_type=pet_type)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug, pet_type=pet_type)
         products = products.filter(category=category)
-
-    return render(request, 'products.html', {
+    return render(request, 'products/products.html', {
         'pet_type': pet_type,
         'category': category,
         'pet_types': pet_types,

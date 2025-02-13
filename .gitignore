@@ -13,4 +13,6 @@ myenv
 bin
 bin/
 .myenv
+newenv
+.newenv
 

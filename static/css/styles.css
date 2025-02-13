@@ -1,22 +1,35 @@
 /* style.css */
 body {
-    background-color: #f0f0f0;  /* Just a basic style to check if the file loads */
+  display: flex;
+  flex-direction: column;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  margin-top: 50px;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.7); 
-    backdrop-filter: blur(5px); 
-    border-radius: 10px; 
-    padding: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  padding: 15px;
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-img {
+  object-fit: cover;
+  aspect-ratio: 5/3;
+  height: 300px;
 }
