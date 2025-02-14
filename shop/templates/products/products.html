@@ -55,7 +55,7 @@
 <div class="product-grid">
   {% for product in products %}
   <div class="card h-100">
-    <a href="{% url 'shop:product_detail' product.id %}"> <!--Ben Add link and close a below image-->
+    <a href="{% url 'shop:product_detail' product.id product.slug %}"> <!--Ben Add link and close a below image-->
     <img
       src="{{ product.image.url }}"
       class="card-img-top"
@@ -64,7 +64,7 @@
     </a>
     <div class="card-body">
       <h5 class="card-title">{{ product.name }}</h5>
-      <a href="{% url 'shop:product_detail' product.id %}">{{ product.name }}</a> <!--Ben Added-->
+      <a href="{% url 'shop:product_detail' product.id product.slug %}">{{ product.name }}</a> <!--Ben Added-->
       <p class="card-text">{{ product.description }}</p>
       <p class="card-price">{{ product.price }}</p>
       <form action="{% url 'payment:checkout' %}" method="POST">

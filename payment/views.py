@@ -31,17 +31,10 @@ def cart_detail(request):
     cart_items = CartItem.objects.filter(cart=cart)
     return render(request, 'payment/cart.html', {'cart_items': cart_items, 'cart': cart})
 
-def cart_items_count(request):
-    if request.user.is_authenticated:
-        cart, created = Cart.objects.get_or_create(user=request.user)
-        return {'cart_items_count': cart.cartitem_set.count()}
-    return {'cart_items_count': 0}
-
 def clear_cart(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
     CartItem.objects.filter(cart=cart).delete()
     return redirect('payment:cart_detail')
-
 
 def checkout(request):
     if request.method == "POST":

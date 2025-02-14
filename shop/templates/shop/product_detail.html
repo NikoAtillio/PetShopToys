@@ -14,6 +14,9 @@
                 {% csrf_token %}
                 <input type="hidden" name="product_id" value="{{ product.id }}">
                 <button type="submit" class="btn btn-primary">Buy Now</button>
+            </form>
+            <form action="{% url 'payment:add_to_cart' product.id %}" method="POST">
+                {% csrf_token %}
                 <button type="submit" class="btn btn-warning">Add to Cart</button>
             </form>
         </div>
