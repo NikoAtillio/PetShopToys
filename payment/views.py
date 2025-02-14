@@ -29,6 +29,8 @@ def remove_from_cart(request, cart_item_id):
 def cart_detail(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
     cart_items = CartItem.objects.filter(cart=cart)
+    for item in cart_items:
+        item.total_price = item.product.price * item.quantity
     return render(request, 'payment/cart.html', {'cart_items': cart_items, 'cart': cart})
 
 def clear_cart(request):
@@ -37,6 +39,17 @@ def clear_cart(request):
     return redirect('payment:cart_detail')
 
 def checkout(request):
+    if request.method == "GET":
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        cart_items = CartItem.objects.filter(cart=cart)
+        for item in cart_items:
+            item.total_price = item.product.price * item.quantity
+        context = {
+            'cart': cart,
+            'cart_items': cart_items,
+        }
+        return render(request, 'checkout.html', context)  # Ensure this path is correct
+
     if request.method == "POST":
         product_id = request.POST.get('product_id')
         product_slug = request.POST.get('product_slug')
@@ -55,41 +68,43 @@ def checkout(request):
             context = {
                 'product': product,
             }
-            return render(request, 'checkout.html', context)
+            return render(request, 'checkout.html', context)  # Ensure this path is correct
 
         except Product.DoesNotExist:
             logger.error(f"Product not found - ID: {product_id}")
             messages.error(request, "Product not found or unavailable")
-            return redirect('shop:productscat')
+            return redirect('shop:products')
 
-    return redirect('shop:productscat')
+    return redirect('shop:products')
 
 def create_stripe_checkout_session(request):
     if request.method == "POST":
-        product_id = request.session.get('selected_product_id')
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        cart_items = CartItem.objects.filter(cart=cart)
 
-        logger.debug(f"Creating Stripe session for product ID: {product_id}")
+        logger.debug(f"Creating Stripe session for cart items")
 
         try:
-            product = get_object_or_404(Product, id=product_id, available=True)
+            # Create line items for Stripe session
+            line_items = []
+            for item in cart_items:
+                line_items.append({
+                    'price_data': {
+                        'currency': 'gbp',
+                        'product_data': {
+                            'name': item.product.name,
+                        },
+                        'unit_amount': int(item.product.price * 100),  # Convert to smallest currency unit
+                    },
+                    'quantity': item.quantity,
+                })
 
             successurl = request.build_absolute_uri(reverse('payment:success'))
             cancelurl = request.build_absolute_uri(reverse('payment:cancel'))
 
             checkout_session = stripe.checkout.Session.create(
                 payment_method_types=['card'],
-                line_items=[
-                    {
-                        'price_data': {
-                            'currency': 'gbp',
-                            'product_data': {
-                                'name': product.name,
-                            },
-                            'unit_amount': int(product.price * 100),
-                        },
-                        'quantity': 1,
-                    },
-                ],
+                line_items=line_items,
                 mode='payment',
                 success_url=successurl,
                 cancel_url=cancelurl,
@@ -98,15 +113,15 @@ def create_stripe_checkout_session(request):
             # Store checkout session ID
             request.session['checkout_session_id'] = checkout_session.id
 
-            logger.debug(f"Stripe session created successfully for {product.name}")
+            logger.debug(f"Stripe session created successfully for cart items")
             return redirect(checkout_session.url)
 
         except Exception as e:
             logger.error(f"Error creating Stripe session: {str(e)}")
             messages.error(request, f"Error processing payment: {str(e)}")
-            return redirect('shop:productscat')
+            return redirect('payment:checkout')
 
-    return redirect('shop:productscat')
+    return redirect('payment:success')
 
 def success(request):
     # Clear session data
