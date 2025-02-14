@@ -63,7 +63,12 @@ def product_list(request, pet_type_slug=None):
 
 def product_detail(request, id):
     product = get_object_or_404(Product, id=id)
-    return render(request, 'shop/product_detail.html', {'product': product})
+    related_products = Product.objects.filter(category=product.category).exclude(id=product.id)[:4]  # Fetch related products
+    context = {
+        'product': product,
+        'related_products': related_products
+    }
+    return render(request, 'shop/product_detail.html', context)
 
 
 def search_products(request):
