@@ -5,11 +5,43 @@ from django.contrib import messages
 import stripe
 from django.conf import settings
 from shop.models import Product
+from .models import Cart, CartItem
 import logging
 
 logger = logging.getLogger(__name__)
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+    if not created:
+        cart_item.quantity += 1
+    cart_item.save()
+    return redirect('shop:product_detail', id=product.id, slug=product.slug)
+
+def remove_from_cart(request, cart_item_id):
+    cart_item = get_object_or_404(CartItem, id=cart_item_id)
+    cart_item.delete()
+    return redirect('payment:cart_detail')
+
+def cart_detail(request):
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_items = CartItem.objects.filter(cart=cart)
+    return render(request, 'payment/cart.html', {'cart_items': cart_items, 'cart': cart})
+
+def cart_items_count(request):
+    if request.user.is_authenticated:
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        return {'cart_items_count': cart.cartitem_set.count()}
+    return {'cart_items_count': 0}
+
+def clear_cart(request):
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    CartItem.objects.filter(cart=cart).delete()
+    return redirect('payment:cart_detail')
+
 
 def checkout(request):
     if request.method == "POST":
