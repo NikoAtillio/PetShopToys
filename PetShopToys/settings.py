@@ -72,7 +72,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'PetShopToys', 'templates'),  # Main templates
-            os.path.join(BASE_DIR, 'shop', 'templates'),         # Shop templates
+            os.path.join(BASE_DIR, 'shop', 'templates', 'products'),         # Shop templates
             os.path.join(BASE_DIR, 'payment', 'templates'),      # Payment templates
             os.path.join(BASE_DIR, 'templates'),                 # Root templates
         ],
