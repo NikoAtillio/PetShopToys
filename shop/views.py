@@ -89,3 +89,10 @@ def search_products(request):
         return render(request, 'search.html', {
             'error_message': "Sorry, there was an error processing your search."
         })
+    
+
+    # Product detail/view page
+
+    def product_detail(request, id):
+        products = get_object_or_404(Product, id=id)
+        return render(request, 'shop/product_detail.html', {'product': product})
