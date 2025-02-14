@@ -61,6 +61,16 @@ def product_list(request, pet_type_slug=None):
             'error_message': "Sorry, there was an error loading the products."
         })
 
+def product_detail(request, id):
+    product = get_object_or_404(Product, id=id)
+    related_products = Product.objects.filter(category=product.category).exclude(id=product.id)[:4]  # Fetch related products
+    context = {
+        'product': product,
+        'related_products': related_products
+    }
+    return render(request, 'shop/product_detail.html', context)
+
+
 def search_products(request):
     try:
         query = request.GET.get('q', '').strip()

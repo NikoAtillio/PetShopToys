@@ -7,6 +7,7 @@ app_name = 'shop'
 urlpatterns = [
     path('', views.product_list, name='product_list'),  # Root shop URL
     path('products/', views.product_list, name='products'),
+    path('product/<int:id>/', views.product_detail, name='product_detail'),  #Ben added for product page
     path('products/search/', views.search_products, name='search_products'),
     path('cats/', views.product_list, {'pet_type_slug': 'cats'}, name='cats_products'),
     path('dogs/', views.product_list, {'pet_type_slug': 'dogs'}, name='dogs_products'),
