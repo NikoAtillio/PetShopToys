@@ -28,8 +28,12 @@
                 {% csrf_token %}
                 <input type="hidden" name="product_id" value="{{ product.id }}">
                 <button type="submit" class="btn btn-primary">Buy Now</button>
-                <button type="submit" class="btn btn-warning">Add to Cart</button>
             </form>
+            <form action="{% url 'payment:add_to_cart' product.id %}" method="POST" id="add-to-cart-form-{{ product.id }}">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <button type="submit" class="btn btn-warning">Add to Cart</button>
+            </form>            
             <!-- Social Media Sharing -->
             <div class="social-sharing">
                 <a href="#" class="btn btn-social btn-facebook">Share on Facebook</a>
@@ -67,4 +71,31 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block extra_js %}
+<script>
+    document.querySelectorAll('form[id^="add-to-cart-form-"]').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const action = this.action; // Get the form action URL
+            const formData = new FormData(this);
+
+            fetch(action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+                }
+            })
+            .then(response => response.text())
+            .then(data => {
+                window.location.href = "{% url 'payment:cart_detail' %}"; // Redirect to the cart page
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+
 {% endblock %}

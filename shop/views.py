@@ -61,9 +61,10 @@ def product_list(request, pet_type_slug=None):
             'error_message': "Sorry, there was an error loading the products."
         })
 
-def product_detail(request, id):
-    product = get_object_or_404(Product, id=id)
-    related_products = Product.objects.filter(category=product.category).exclude(id=product.id)[:4]  # Fetch related products
+
+def product_detail(request, id, slug):
+    product = get_object_or_404(Product, id=id, slug=slug)  # Add slug to the query
+    related_products = Product.objects.filter(category=product.category).exclude(id=product.id)[:4]
     context = {
         'product': product,
         'related_products': related_products
