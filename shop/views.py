@@ -61,6 +61,11 @@ def product_list(request, pet_type_slug=None):
             'error_message': "Sorry, there was an error loading the products."
         })
 
+def product_detail(request, id):
+        products = get_object_or_404(Product, id=id)
+        return render(request, 'shop/product_detail.html', {'product': product})
+
+
 def search_products(request):
     try:
         query = request.GET.get('q', '').strip()
@@ -91,8 +96,4 @@ def search_products(request):
         })
     
 
-    # Product detail/view page
-
-    def product_detail(request, id):
-        products = get_object_or_404(Product, id=id)
-        return render(request, 'shop/product_detail.html', {'product': product})
+  
